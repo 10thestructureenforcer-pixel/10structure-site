@@ -1,0 +1,70 @@
+The Execution Manual
+10 Structure Enforcer enforces one execution model:
+Break → Acceptance → Retest → Reject.
+This model is not predictive.
+It is procedural.
+The purpose is to reduce impulsive entries and emotional exits by requiring defined structural confirmation before participation.
+
+I. The BARR Model
+1. Break
+A Break occurs when price moves through a defined structural level with strength and clarity.
+A valid Break requires:
+• Clear displacement beyond structure
+• Momentum sufficient to demonstrate initiative
+• No immediate rejection back inside prior range
+Common violation:
+Entering before the level is clearly breached.
+
+2. Acceptance
+Acceptance confirms that price is holding beyond the broken level.
+A valid Acceptance requires:
+• Sustained trading beyond the break
+• No immediate reversal back through structure
+• Evidence that the level is being defended
+Common violation:
+Entering during the first push without confirmation.
+
+3. Retest
+Retest verifies whether the broken level now functions as support or resistance.
+A valid Retest requires:
+• Price revisiting the level
+• Controlled pullback behavior
+• Lack of aggressive invalidation
+Common violation:
+Chasing continuation without waiting for retest.
+
+4. Reject
+Reject defines entry confirmation.
+A valid Reject requires:
+• Clear response off the retest level
+• Defined invalidation point
+• Risk determined before entry
+Common violation:
+Entering without defined invalidation.
+
+II. Structural Standards
+The following standards apply to all trades logged within 10 Structure Enforcer.
+1. Trade only qualified structure.
+2. Protect green from turning red.
+3. Exit immediately upon structural invalidation.
+4. Do not move stops to avoid loss.
+5. Log every rule violation.
+6. Trigger reset after emotional trades.
+7. Review execution weekly.
+8. Improve one behavioral weakness at a time.
+9. Do not override predefined risk.
+10. Discipline precedes outcome.
+
+These standards are behavioral requirements, not market forecasts.
+
+III. Enforcement Philosophy
+10 Structure Enforcer does not provide:
+• Trade signals
+• Entry alerts
+• Market predictions
+• Investment advice
+The application functions as a behavioral tracking and enforcement system.
+Its purpose is to measure execution discipline, identify violations, and promote consistent structure adherence.
+Results depend on the user’s own decision-making and risk management.
+The system measures compliance.
+It does not generate edge.

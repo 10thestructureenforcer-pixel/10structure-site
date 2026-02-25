@@ -1,0 +1,87 @@
+10 Structure Enforcer — Legal & Compliance
+Last Updated: February 22, 2026
+10 Structure Enforcer is operated by FNB Films, LLC.
+
+1. Privacy Policy
+
+Information We Collect
+10 Structure Enforcer is designed to minimize data collection.
+We may collect:
+• Email address (if you contact support)
+• Trade log entries and discipline data entered manually by the user
+• Subscription status information provided by Apple via In-App Purchase
+
+We do not collect:
+• Brokerage account credentials
+• Direct market data feeds
+• Financial account access
+• Trade execution data
+• Banking information
+
+We do not execute trades on behalf of users.
+
+How Information Is Used
+Information is used solely to:
+• Provide core app functionality
+• Generate discipline analytics
+• Maintain subscription access
+• Improve app stability and performance
+
+We do not sell personal data.
+We do not share user trade logs with third parties.
+
+Data Storage
+User trade and discipline data is stored locally on the user’s device and may sync securely using Apple iCloud, depending on device settings.
+We do not maintain external servers containing user trade logs.
+
+Third-Party Services
+Subscription payments are processed exclusively through Apple’s In-App Purchase system.
+We may use standard analytics tools to improve application performance. These tools do not provide access to individual trade details.
+
+Data Deletion
+Users may delete their data at any time by deleting the application from their device.
+Users may also request assistance by contacting:
+support@10structureenforcer.com
+
+2. Terms of Use
+
+By using 10 Structure Enforcer, you agree to the following terms.
+
+No Financial Advice
+10 Structure Enforcer is a behavioral execution and discipline tracking tool.
+It does not provide financial, investment, legal, or trading advice.
+It does not provide trade recommendations, signals, alerts, or predictions.
+Users are solely responsible for their trading decisions.
+
+No Performance Guarantees
+No representation or guarantee is made regarding trading performance, profitability, or results.
+Past discipline metrics do not guarantee future outcomes.
+
+User Responsibility
+Users are responsible for:
+• Their trading decisions
+• Risk management
+• Compliance with applicable laws
+• Maintaining device security
+
+Limitation of Liability
+To the maximum extent permitted by law, FNB Films, LLC shall not be liable for any financial losses, trading losses, or damages arising from use of the application.
+Use of the application is at the user’s own risk.
+
+3. Subscription Terms
+
+Advanced discipline features are available through a subscription purchased via Apple In-App Purchase.
+• Payment will be charged to your Apple ID account at confirmation of purchase.
+• Subscriptions automatically renew unless canceled at least 24 hours before the end of the current period.
+• Your account will be charged for renewal within 24 hours prior to the end of the current period.
+• You can manage and cancel subscriptions through your Apple ID account settings.
+
+All billing is handled by Apple. We do not process subscription payments directly.
+
+4. Contact & Support
+
+10 Structure Enforcer
+Operated by FNB Films, LLC
+Support: support@10structureenforcer.com
+Legal: legal@10structureenforcer.com
+19 Coventry Lane, Trumbull, CT 06611
