@@ -178,68 +178,18 @@
 <script>
 (function(){
   const B={phone:"(475) 391-2326",tel:"+14753912326",ios:"https://apple.co/4bX5map",android:"https://play.google.com/store/apps/details?id=app.rork.structure_enforcer_12",discord:"https://whop.com/checkout/plan_vsNOFPOxrVdHD",buy:"https://buy.stripe.com/3cI28k5sYcAT72I994dfG00"};
-  const KB={"what is 10se":{a:"10SE is a daily enforcement system for traders who want rules, receipts, and clean execution. You declare your structure before the session, execute only BARR rules, log your obedience, and build streaks. It scores discipline, not P&L.",q:["How does scoring work?","Download the app","What is BARR?"]},"how does it work":{a:"The daily flow:
-
-1. Declare your structure before the session
-2. Execute only BARR rules
-3. Log obedience. Score the day.
-4. Protect streaks. Fix violations fast.
-
-Your job is rule obedience. The money comes when size is earned.",q:["What is BARR?","Download the app","Pricing"]},"barr":{a:"BARR = Break, Acceptance, Retest, Reject.
-
-Break — price breaks a key level
-Acceptance — price holds beyond the level
-Retest — price returns to test the level
-Reject — price fails to reclaim
-
-You wait for structure. You do not predict or chase.",q:["How does scoring work?","Download the app","Talk to someone"]},"scoring":{a:"10SE tracks discipline, not dollars.
-
-- Did you declare structure before the session?
-- Did you follow BARR rules only?
-- Did you manage winners (green never red)?
-- Did you log everything?
-
-Clean days build streaks. Violations cost points.",q:["What is BARR?","Download the app","Pricing"]},"pricing":{a:"Purchase 10SE directly through the site:
-"+B.buy+"
-
-For Discord community access, join through Whop.",q:["Download the app","Join Discord","Talk to someone"]},"download":{a:"10SE is available on both platforms:
-
-iOS: "+B.ios+"
-Android: "+B.android+"
-
-Download and start your 20-day discipline run.",q:["How does it work?","Pricing","Join Discord"]},"discord":{a:"Join the 10SE Discord community for accountability, trade reviews, and direct access.
-
-Join here: "+B.discord,q:["Download the app","Pricing","How does it work?"]},"contact":{a:"Reach us:
-
-Phone: "+B.phone+" (AI-assisted support 24/7)
-Discord: Community support through Whop
-
-For complex issues, you will be routed to a team member.",q:["Call now","Download the app","Pricing"]},"refund":{a:"For refund requests, call "+B.phone+" or message through Discord.
-
-Include your purchase date and email. We respond within 48 hours.",q:["Contact support","Call now","Join Discord"]},"technical":{a:"For technical issues:
-
-1. Make sure you have the latest version
-2. Close and reopen the app
-3. If it persists, call "+B.phone+" or reach out via Discord
-
-Include device type, app version, and issue description.",q:["Download latest version","Contact support","Join Discord"]},"green never red":{a:""Green never red" means once a trade is in profit, protect that edge. Never let a green trade turn red.
-
-This is a core 10SE rule. Your discipline score drops if you violate it.",q:["What is BARR?","How does scoring work?","Download the app"]}};
+  const KB={"what is 10se":{a:"10SE is a daily enforcement system for traders who want rules, receipts, and clean execution. You declare your structure before the session, execute only BARR rules, log your obedience, and build streaks. It scores discipline, not P&L.",q:["How does scoring work?","Download the app","What is BARR?"]},"how does it work":{a:"The daily flow:\n\n1. Declare your structure before the session\n2. Execute only BARR rules\n3. Log obedience. Score the day.\n4. Protect streaks. Fix violations fast.\n\nYour job is rule obedience. The money comes when size is earned.",q:["What is BARR?","Download the app","Pricing"]},"barr":{a:"BARR = Break, Acceptance, Retest, Reject.\n\nBreak \u2014 price breaks a key level\nAcceptance \u2014 price holds beyond the level\nRetest \u2014 price returns to test the level\nReject \u2014 price fails to reclaim\n\nYou wait for structure. You do not predict or chase.",q:["How does scoring work?","Download the app","Talk to someone"]},"scoring":{a:"10SE tracks discipline, not dollars.\n\n- Did you declare structure before the session?\n- Did you follow BARR rules only?\n- Did you manage winners (green never red)?\n- Did you log everything?\n\nClean days build streaks. Violations cost points.",q:["What is BARR?","Download the app","Pricing"]},"pricing":{a:"Purchase 10SE directly through the site:\nhttps://buy.stripe.com/3cI28k5sYcAT72I994dfG00\n\nFor Discord community access, join through Whop.",q:["Download the app","Join Discord","Talk to someone"]},"download":{a:"10SE is available on both platforms:\n\niOS: https://apple.co/4bX5map\nAndroid: https://play.google.com/store/apps/details?id=app.rork.structure_enforcer_12\n\nDownload and start your 20-day discipline run.",q:["How does it work?","Pricing","Join Discord"]},"discord":{a:"Join the 10SE Discord community for accountability, trade reviews, and direct access.\n\nJoin here: https://whop.com/checkout/plan_vsNOFPOxrVdHD",q:["Download the app","Pricing","How does it work?"]},"contact":{a:"Reach us:\n\nPhone: (475) 391-2326 (AI-assisted support 24/7)\nDiscord: Community support through Whop\n\nFor complex issues, you will be routed to a team member.",q:["Call now","Download the app","Pricing"]},"refund":{a:"For refund requests, call (475) 391-2326 or message through Discord.\n\nInclude your purchase date and email. We respond within 48 hours.",q:["Contact support","Call now","Join Discord"]},"technical":{a:"For technical issues:\n\n1. Make sure you have the latest version\n2. Close and reopen the app\n3. If it persists, call (475) 391-2326 or reach out via Discord\n\nInclude device type, app version, and issue description.",q:["Download latest version","Contact support","Join Discord"]},"green never red":{a:"\"Green never red\" means once a trade is in profit, protect that edge. Never let a green trade turn red.\n\nThis is a core 10SE rule. Your discipline score drops if you violate it.",q:["What is BARR?","How does scoring work?","Download the app"]}};
   const patterns=[{k:["what is 10","what's 10","tell me about","what does 10se","about 10se","what is this"],i:"what is 10se"},{k:["how does it work","how it works","daily flow","how do i use","how to use"],i:"how does it work"},{k:["barr","break acceptance","retest reject","trading system","trading rules"],i:"barr"},{k:["scor","discipline score","points","streak","obedience"],i:"scoring"},{k:["pric","cost","how much","buy","purchase","pay","subscription"],i:"pricing"},{k:["download","app store","google play","install","get the app","ios","android"],i:"download"},{k:["discord","community","whop","join"],i:"discord"},{k:["contact","reach","email","phone","call","support","help","talk to","speak"],i:"contact"},{k:["refund","money back","cancel","return"],i:"refund"},{k:["technical","bug","error","crash","not working","issue","problem","broken","fix"],i:"technical"},{k:["green never red","manage winners","protect edge"],i:"green never red"}];
   function match(t){const l=t.toLowerCase().trim();for(const p of patterns)for(const k of p.k)if(l.includes(k))return p.i;return null}
-  function respond(t){const i=match(t);if(i&&KB[i])return KB[i];return{a:"I can help with questions about 10SE — the app, BARR trading rules, scoring, pricing, downloads, and technical support.
-
-For direct help, call "+B.phone+" or join Discord.",q:["What is 10SE?","Download the app","Pricing","Contact support"]};}
+  function respond(t){const i=match(t);if(i&&KB[i])return KB[i];return{a:"I can help with questions about 10SE \u2014 the app, BARR trading rules, scoring, pricing, downloads, and technical support.\n\nFor direct help, call (475) 391-2326 or join Discord.",q:["What is 10SE?","Download the app","Pricing","Contact support"]};}
   const tog=document.getElementById('tse-chat-toggle'),win=document.getElementById('tse-chat-window'),msgs=document.getElementById('tseMsgs'),inp=document.getElementById('tseInput'),send=document.getElementById('tseSend');
   let open=false,init=false;
-  tog.addEventListener('click',()=>{open=!open;win.classList.toggle('visible',open);tog.classList.toggle('open',open);if(open&&!init){init=true;addBot("Welcome to 10SE support. I am the AI assistant for 10 The Structure Enforcer.
-
-How can I help?",["What is 10SE?","Download the app","Pricing","Contact support"])}if(open)inp.focus()});
+  tog.addEventListener('click',()=>{open=!open;win.classList.toggle('visible',open);tog.classList.toggle('open',open);if(open&&!init){init=true;addBot("Welcome to 10SE support. I am the AI assistant for 10 The Structure Enforcer.\n\nHow can I help?",["What is 10SE?","Download the app","Pricing","Contact support"])}if(open)inp.focus()});
   function addBot(text,qrs=[]){
     const w=document.createElement('div');w.className='tse-msg bot';
     const s=document.createElement('div');s.className='tse-sender';s.textContent='10SE AI';w.appendChild(s);
     const c=document.createElement('div');c.innerHTML=text.replace(/\n/g,'<br>');w.appendChild(c);
-    if(qrs.length){const qd=document.createElement('div');qd.className='tse-qr';qrs.forEach(label=>{const b=document.createElement('button');b.className='tse-qr-btn';b.textContent=label;b.addEventListener('click',()=>{if(label==="Call now"){window.open("tel:"+B.tel);return}handle(label)});qd.appendChild(b)});w.appendChild(qd)}
+    if(qrs.length){const qd=document.createElement('div');qd.className='tse-qr';qrs.forEach(label=>{const b=document.createElement('button');b.className='tse-qr-btn';b.textContent=label;b.addEventListener('click',()=>{if(label==="Call now"){window.open("tel:+14753912326");return}handle(label)});qd.appendChild(b)});w.appendChild(qd)}
     msgs.appendChild(w);msgs.scrollTop=msgs.scrollHeight;
   }
   function addUser(text){const w=document.createElement('div');w.className='tse-msg user';const s=document.createElement('div');s.className='tse-sender';s.textContent='You';w.appendChild(s);const c=document.createElement('div');c.textContent=text;w.appendChild(c);msgs.appendChild(w);msgs.scrollTop=msgs.scrollHeight}
