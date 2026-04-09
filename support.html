@@ -178,8 +178,7 @@ How can I help?",["What is 10SE?","Download the app","Pricing","Contact support"
   function addBot(text,qrs=[]){
     const w=document.createElement('div');w.className='tse-msg bot';
     const s=document.createElement('div');s.className='tse-sender';s.textContent='10SE AI';w.appendChild(s);
-    const c=document.createElement('div');c.innerHTML=text.replace(/
-/g,'<br>');w.appendChild(c);
+    const c=document.createElement('div');c.innerHTML=text.replace(/\n/g,'<br>');w.appendChild(c);
     if(qrs.length){const qd=document.createElement('div');qd.className='tse-qr';qrs.forEach(label=>{const b=document.createElement('button');b.className='tse-qr-btn';b.textContent=label;b.addEventListener('click',()=>{if(label==="Call now"){window.open("tel:"+B.tel);return}handle(label)});qd.appendChild(b)});w.appendChild(qd)}
     msgs.appendChild(w);msgs.scrollTop=msgs.scrollHeight;
   }
