@@ -49,5 +49,147 @@
   </div>
 
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+<!-- 10SE AI CHAT WIDGET -->
+<style id="tenSEChatStyles">
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+  #tse-chat-toggle{position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;background:#00e676;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(0,230,118,.3);z-index:10000;transition:transform .2s,box-shadow .2s}
+  #tse-chat-toggle:hover{transform:scale(1.08);box-shadow:0 6px 32px rgba(0,230,118,.45)}
+  #tse-chat-toggle svg{width:28px;height:28px;fill:#0a0a0a;transition:transform .3s}
+  #tse-chat-toggle.open svg{transform:rotate(90deg)}
+  #tse-chat-window{position:fixed;bottom:96px;right:24px;width:380px;max-height:560px;background:#111;border:1px solid #222;border-radius:16px;display:flex;flex-direction:column;z-index:10000;box-shadow:0 16px 64px rgba(0,0,0,.6);opacity:0;transform:translateY(20px) scale(.95);pointer-events:none;transition:opacity .25s,transform .25s;overflow:hidden;font-family:'Outfit',sans-serif}
+  #tse-chat-window.visible{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+  #tse-chat-window *{margin:0;padding:0;box-sizing:border-box}
+  .tse-header{padding:16px 20px;background:#161616;border-bottom:1px solid #222;display:flex;align-items:center;gap:12px}
+  .tse-logo{width:36px;height:36px;background:#00e676;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:16px;color:#0a0a0a;flex-shrink:0}
+  .tse-hinfo h3{font-size:14px;font-weight:600;color:#f0f0f0;letter-spacing:.02em}
+  .tse-hinfo p{font-size:11px;color:#888;margin-top:1px}
+  .tse-status{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:11px;color:#00e676}
+  .tse-dot{width:7px;height:7px;background:#00e676;border-radius:50%;animation:tse-pulse 2s infinite}
+  @keyframes tse-pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  .tse-msgs{flex:1;overflow-y:auto;padding:16px 16px 8px;display:flex;flex-direction:column;gap:12px;min-height:300px;max-height:360px;scrollbar-width:thin;scrollbar-color:#222 transparent}
+  .tse-msg{max-width:85%;padding:10px 14px;border-radius:12px;font-size:13px;line-height:1.5;animation:tse-in .25s}
+  @keyframes tse-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+  .tse-msg.bot{align-self:flex-start;background:#161616;border:1px solid #222;color:#f0f0f0}
+  .tse-msg.user{align-self:flex-end;background:#00e676;color:#0a0a0a;font-weight:500}
+  .tse-sender{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#00e676;margin-bottom:4px}
+  .tse-msg.user .tse-sender{color:rgba(0,0,0,.5)}
+  .tse-qr{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .tse-qr-btn{background:#1a1a1a;border:1px solid #333;color:#f0f0f0;font-family:'Outfit',sans-serif;font-size:12px;padding:6px 12px;border-radius:8px;cursor:pointer;transition:all .15s}
+  .tse-qr-btn:hover{background:rgba(0,230,118,.15);border-color:#00e676;color:#00e676}
+  .tse-typing{display:flex;gap:4px;padding:12px 14px;align-self:flex-start;background:#161616;border:1px solid #222;border-radius:12px}
+  .tse-typing span{width:6px;height:6px;background:#555;border-radius:50%;animation:tse-bounce 1.2s infinite}
+  .tse-typing span:nth-child(2){animation-delay:.15s}
+  .tse-typing span:nth-child(3){animation-delay:.3s}
+  @keyframes tse-bounce{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-4px);opacity:1}}
+  .tse-input-area{padding:12px 16px;border-top:1px solid #222;display:flex;gap:8px;align-items:center;background:#161616}
+  .tse-input-area input{flex:1;background:#0a0a0a;border:1px solid #222;border-radius:10px;padding:10px 14px;color:#f0f0f0;font-family:'Outfit',sans-serif;font-size:13px;outline:none;transition:border-color .2s}
+  .tse-input-area input:focus{border-color:#00e676}
+  .tse-input-area input::placeholder{color:#555}
+  .tse-send{width:38px;height:38px;border-radius:10px;background:#00e676;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .tse-send:hover{opacity:.85}
+  .tse-send svg{width:18px;height:18px;fill:#0a0a0a}
+  .tse-phone{padding:10px 16px;background:#111;border-top:1px solid #222;display:flex;align-items:center;gap:8px;font-size:11px;color:#888}
+  .tse-phone a{color:#00e676;text-decoration:none;font-weight:600;font-family:'JetBrains Mono',monospace;font-size:12px}
+  .tse-phone a:hover{text-decoration:underline}
+  @media(max-width:480px){#tse-chat-window{right:8px;left:8px;bottom:88px;width:auto}#tse-chat-toggle{bottom:16px;right:16px}}
+</style>
+<button id="tse-chat-toggle" aria-label="Open support chat">
+  <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+</button>
+<div id="tse-chat-window">
+  <div class="tse-header">
+    <div class="tse-logo">10</div>
+    <div class="tse-hinfo">
+      <h3>10SE Support</h3>
+      <p>AI-powered help</p>
+    </div>
+    <div class="tse-status"><span class="tse-dot"></span>Online</div>
+  </div>
+  <div class="tse-msgs" id="tseMsgs"></div>
+  <div class="tse-input-area">
+    <input type="text" id="tseInput" placeholder="Ask about 10SE..." autocomplete="off"/>
+    <button class="tse-send" id="tseSend" aria-label="Send"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
+  </div>
+  <div class="tse-phone">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="#888"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1.003 1.003 0 011.01-.24c1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.1.31.03.66-.25 1.02l-2.2 2.2z"/></svg>
+    Prefer a call? <a href="tel:+14753912326">(475) 391-2326</a> — AI phone support
+  </div>
+</div>
+<script>
+(function(){
+  const B={phone:"(475) 391-2326",tel:"+14753912326",ios:"https://apple.co/4bX5map",android:"https://play.google.com/store/apps/details?id=app.rork.structure_enforcer_12",discord:"https://whop.com/checkout/plan_vsNOFPOxrVdHD",buy:"https://buy.stripe.com/3cI28k5sYcAT72I994dfG00"};
+  const KB={"what is 10se":{a:"10SE is a daily enforcement system for traders who want rules, receipts, and clean execution. You declare your structure before the session, execute only BARR rules, log your obedience, and build streaks. It scores discipline, not P&L.",q:["How does scoring work?","Download the app","What is BARR?"]},"how does it work":{a:"The daily flow:
+
+1. Declare your structure before the session
+2. Execute only BARR rules
+3. Log obedience. Score the day.
+4. Protect streaks. Fix violations fast.
+
+Your job is rule obedience. The money comes when size is earned.",q:["What is BARR?","Download the app","Pricing"]},"barr":{a:"BARR = Break, Acceptance, Retest, Reject.
+
+Break — price breaks a key level
+Acceptance — price holds beyond the level
+Retest — price returns to test the level
+Reject — price fails to reclaim
+
+You wait for structure. You do not predict or chase.",q:["How does scoring work?","Download the app","Talk to someone"]},"scoring":{a:"10SE tracks discipline, not dollars.
+
+- Did you declare structure before the session?
+- Did you follow BARR rules only?
+- Did you manage winners (green never red)?
+- Did you log everything?
+
+Clean days build streaks. Violations cost points.",q:["What is BARR?","Download the app","Pricing"]},"pricing":{a:"Purchase 10SE directly through the site:
+"+B.buy+"
+
+For Discord community access, join through Whop.",q:["Download the app","Join Discord","Talk to someone"]},"download":{a:"10SE is available on both platforms:
+
+iOS: "+B.ios+"
+Android: "+B.android+"
+
+Download and start your 20-day discipline run.",q:["How does it work?","Pricing","Join Discord"]},"discord":{a:"Join the 10SE Discord community for accountability, trade reviews, and direct access.
+
+Join here: "+B.discord,q:["Download the app","Pricing","How does it work?"]},"contact":{a:"Reach us:
+
+Phone: "+B.phone+" (AI-assisted support 24/7)
+Discord: Community support through Whop
+
+For complex issues, you will be routed to a team member.",q:["Call now","Download the app","Pricing"]},"refund":{a:"For refund requests, call "+B.phone+" or message through Discord.
+
+Include your purchase date and email. We respond within 48 hours.",q:["Contact support","Call now","Join Discord"]},"technical":{a:"For technical issues:
+
+1. Make sure you have the latest version
+2. Close and reopen the app
+3. If it persists, call "+B.phone+" or reach out via Discord
+
+Include device type, app version, and issue description.",q:["Download latest version","Contact support","Join Discord"]},"green never red":{a:""Green never red" means once a trade is in profit, protect that edge. Never let a green trade turn red.
+
+This is a core 10SE rule. Your discipline score drops if you violate it.",q:["What is BARR?","How does scoring work?","Download the app"]}};
+  const patterns=[{k:["what is 10","what's 10","tell me about","what does 10se","about 10se","what is this"],i:"what is 10se"},{k:["how does it work","how it works","daily flow","how do i use","how to use"],i:"how does it work"},{k:["barr","break acceptance","retest reject","trading system","trading rules"],i:"barr"},{k:["scor","discipline score","points","streak","obedience"],i:"scoring"},{k:["pric","cost","how much","buy","purchase","pay","subscription"],i:"pricing"},{k:["download","app store","google play","install","get the app","ios","android"],i:"download"},{k:["discord","community","whop","join"],i:"discord"},{k:["contact","reach","email","phone","call","support","help","talk to","speak"],i:"contact"},{k:["refund","money back","cancel","return"],i:"refund"},{k:["technical","bug","error","crash","not working","issue","problem","broken","fix"],i:"technical"},{k:["green never red","manage winners","protect edge"],i:"green never red"}];
+  function match(t){const l=t.toLowerCase().trim();for(const p of patterns)for(const k of p.k)if(l.includes(k))return p.i;return null}
+  function respond(t){const i=match(t);if(i&&KB[i])return KB[i];return{a:"I can help with questions about 10SE — the app, BARR trading rules, scoring, pricing, downloads, and technical support.
+
+For direct help, call "+B.phone+" or join Discord.",q:["What is 10SE?","Download the app","Pricing","Contact support"]};}
+  const tog=document.getElementById('tse-chat-toggle'),win=document.getElementById('tse-chat-window'),msgs=document.getElementById('tseMsgs'),inp=document.getElementById('tseInput'),send=document.getElementById('tseSend');
+  let open=false,init=false;
+  tog.addEventListener('click',()=>{open=!open;win.classList.toggle('visible',open);tog.classList.toggle('open',open);if(open&&!init){init=true;addBot("Welcome to 10SE support. I am the AI assistant for 10 The Structure Enforcer.
+
+How can I help?",["What is 10SE?","Download the app","Pricing","Contact support"])}if(open)inp.focus()});
+  function addBot(text,qrs=[]){
+    const w=document.createElement('div');w.className='tse-msg bot';
+    const s=document.createElement('div');s.className='tse-sender';s.textContent='10SE AI';w.appendChild(s);
+    const c=document.createElement('div');c.innerHTML=text.replace(/
+/g,'<br>');w.appendChild(c);
+    if(qrs.length){const qd=document.createElement('div');qd.className='tse-qr';qrs.forEach(label=>{const b=document.createElement('button');b.className='tse-qr-btn';b.textContent=label;b.addEventListener('click',()=>{if(label==="Call now"){window.open("tel:"+B.tel);return}handle(label)});qd.appendChild(b)});w.appendChild(qd)}
+    msgs.appendChild(w);msgs.scrollTop=msgs.scrollHeight;
+  }
+  function addUser(text){const w=document.createElement('div');w.className='tse-msg user';const s=document.createElement('div');s.className='tse-sender';s.textContent='You';w.appendChild(s);const c=document.createElement('div');c.textContent=text;w.appendChild(c);msgs.appendChild(w);msgs.scrollTop=msgs.scrollHeight}
+  function showTyping(){const e=document.createElement('div');e.className='tse-typing';e.id='tseTyping';e.innerHTML='<span></span><span></span><span></span>';msgs.appendChild(e);msgs.scrollTop=msgs.scrollHeight}
+  function handle(t){addUser(t);showTyping();setTimeout(()=>{const el=document.getElementById('tseTyping');if(el)el.remove();const r=respond(t);addBot(r.a,r.q||[])},600+Math.random()*800)}
+  send.addEventListener('click',()=>{const v=inp.value.trim();if(!v)return;inp.value='';handle(v)});
+  inp.addEventListener('keydown',e=>{if(e.key==='Enter'){const v=inp.value.trim();if(!v)return;inp.value='';handle(v)}});
+})();
+</script>
+<!-- END 10SE AI CHAT WIDGET -->
 </body>
 </html>
